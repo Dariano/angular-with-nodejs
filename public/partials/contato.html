@@ -1,0 +1,24 @@
+<div data-ng-controller="contatoController as ctrl">
+	<h1 class="text-center">Contato</h1>
+	<p data-ng-show="ctrl.mensagem.texto">{{ctrl.mensagem.texto}}</p>
+	<form data-ng-submit="ctrl.salvar()">
+		
+		<div class="form-group">
+			<label for="nome">Nome completo</label>
+			<input type="text" class="form-control" id="nome" name="nome" required="true" 
+				data-ng-model="ctrl.contato.nome"
+			/>
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+			<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="text" class="form-control" id="email" name="email" 
+					placeholder="email@exemplo.com" data-ng-model="ctrl.contato.email"
+				required />
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		<a href="javascript:history.back()" class="btn btn-default">Voltar</a>
+	</form>
+</div>
