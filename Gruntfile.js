@@ -6,26 +6,30 @@ module.exports = function (grunt) {
 				expand: true,
 				cwd: '.',
 				src: ['**', '!Gruntfile.js', '!package.json', '!bower.json'],
-				dest: 'dist'
+				dest: 'wwwroot'
 			}
 		},
 		clean:{
 			dist:{
-				src: 'dist'
+				src: 'wwwroot'
 			}
 		},
 		
 		usemin:{
-			html: 'dist/public/index.html'
+			html: 'wwwroot/public/index.html'
 		},
 		
 		useminPrepare:{
+			options:{
+				root: 'wwwroot/public',	
+				dest: 'wwwroot/public'	
+			},
 			html: 'public/index.html'
 		}, 
 		ngAnnotate:{
 			scripts:{
 				expand: true,
-				src: ['dist/public/js/**/*.js']
+				src: ['wwwroot/public/js/**/*.js']
 			}
 		}
 	});
