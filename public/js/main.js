@@ -14,7 +14,16 @@ app.config(function ($routeProvider) {
 	})
 	.when('/contato', {
 		templateUrl: 'partials/contato.html',
-		controller: 'contatoController'
+		controller: 'contatoController',
+		resolve:{
+			access:function(Access){ return Access.hasRole('ADMIN')}
+		}
 	})
 	.otherwise({redirectTo: '/contatos'});
 });
+
+
+
+
+
+
