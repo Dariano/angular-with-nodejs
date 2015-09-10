@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -43,3 +44,9 @@ Temporary Items
 .apdisk
 public/vendor
 .settings
+=======
+/node_modules
+/public/vendor
+/wwwroot/
+.tmp
+>>>>>>> dev

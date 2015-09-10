@@ -4,11 +4,22 @@ var contatos = [
 	{ _id: 3, nome: 'Contato Angular 3', email: 'cont3@empresa.com.br' }
 ];
 
+var user = {
+  "name": "John Doe", // not actually needed for this example
+  "roles": ["ADMIN", "USER"], // or any other role (or no role at all, i.e. an empty array)
+  "anonymous": false // or true
+};
+
 var ID_CONTATO_INC = 3;
 
 module.exports = function (app) {
 	var Contato = app.models.contato;
 	var controller = {};
+	
+	controller.getUsuario = function(req, res){
+		console.log('getUsuario')
+		res.json(user);
+	};
 	
 	controller.listaContatos = function (req, res) {
 		Contato.find().exec()
