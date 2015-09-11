@@ -2,4 +2,5 @@ public/vendor
 .idea
 .tmp
 .settings
-wwwroot/
+wwwroot
+node_modules
