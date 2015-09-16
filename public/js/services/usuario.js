@@ -1,4 +1,4 @@
-app.factory("User",
+app.factory("Usuario",
 function($resource) {
 
   "use strict";

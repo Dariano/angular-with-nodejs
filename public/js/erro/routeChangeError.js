@@ -1,15 +1,15 @@
-app.run(["$rootScope", "Access", "$location",
-function($rootScope, Access, $location) {
+app.run(["$rootScope", "ControleDeAcesso", "$location",
+function($rootScope, ControleDeAcesso, $location) {
 
   "use strict";
 
   $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
-    if (rejection == Access.UNAUTHORIZED) {
+    if (rejection == ControleDeAcesso.NAOAUTORIZADO) {
       $location.path("/login");
-      console.log('Access.FORBIDDEN');
-    } else if (rejection == Access.FORBIDDEN) {
-      console.log('Access.FORBIDDEN');
-      $location.path("/forbidden");
+      console.log('ControleDeAcesso.NAOAUTORIZADO');
+    } else if (rejection == ControleDeAcesso.NEGADO) {
+      console.log('ControleDeAcesso.NEGADO');
+      $location.path("/acesso-negado");
     }
   });
 
