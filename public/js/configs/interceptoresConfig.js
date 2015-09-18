@@ -1,6 +1,7 @@
 app.config(['$httpProvider', function($httpProvider) {
 	$httpProvider.interceptors.push('AuthInterceptor');
-/*	
+    $httpProvider.interceptors.push('LoadingInterceptor');
+/*
 	// Todo dado de POST passa a ter estilo jQuery
 	$httpProvider.defaults.transformRequest.push(function(data) {
       var requestStr;

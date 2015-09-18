@@ -21,13 +21,15 @@
 	<script src="js/services/usuario.js"></script>
 	<script src="js/services/perfilDoUsuario.js"></script>
 	
-	<script src="js/services/AuthInterceptor.js"></script>
+	<script src="js/services/authInterceptor.js"></script>
 	<script src="js/configs/interceptoresConfig.js"></script>
+	<script src="js/services/loadingInterceptor.js"></script>
 	
 	<script src="js/eventos/routeChangeError.js"></script>
 	<!-- endbuild -->
 </head>
-<body>	
+<body>
+	<div data-ng-if="loading">Loading...</div>
 	<div data-ng-view class="container"></div>	
 </body>
 </html>
