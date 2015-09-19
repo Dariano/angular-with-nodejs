@@ -1,7 +1,7 @@
 'use strict';
 
 /* global angular */
-var app = angular.module('mean', ['ngRoute', 'ngResource']);
+var app = angular.module('mean', ['ngRoute', 'ngResource', 'ui.bootstrap', 'dialogs.main']);
 
 app.config(function ($routeProvider) {
 	$routeProvider.when('/contatos', {
@@ -21,3 +21,13 @@ app.config(function ($routeProvider) {
 	})
 	.otherwise({redirectTo: '/contatos'});
 });
+
+app.config(['dialogsProvider','$translateProvider',function(dialogsProvider,$translateProvider){
+		dialogsProvider.setSize('sm');
+
+		$translateProvider.translations('pt-br',{
+			DIALOGS_OK: "Ok",
+			DIALOGS_YES: "Sim",
+			DIALOGS_NO: "Não"
+		});
+}])

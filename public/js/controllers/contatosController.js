@@ -1,5 +1,5 @@
 
-app.controller('contatosController', function ($resource, ContatoAPI) {
+app.controller('contatosController', function ($resource, ContatoAPI, dialogs) {
 	var self = this;
 	self.contatos = [];
 	self.filtro = '';
@@ -16,12 +16,16 @@ app.controller('contatosController', function ($resource, ContatoAPI) {
 	buscarContatos();
 
 	self.remove = function (contato) {
-		ContatoAPI.delete({ id: contato._id },
-			buscarContatos,
-			function (erro) {
-				self.mensagem.texto = 'Não foi possível remover o contato';
-				console.log(erro);
-			}
-		);
+		
+		var confirmar = dialogs.confirm('Remover contato', 'Deseja remover o contato?');
+		confirmar.result.then(function(btn){
+			ContatoAPI.delete({ id: contato._id },
+				buscarContatos,
+				function (erro) {
+					self.mensagem.texto = 'Não foi possível remover o contato';
+					console.log(erro);
+				}
+			);
+		});	
 	};
 });
