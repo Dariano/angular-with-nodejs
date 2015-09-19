@@ -1,7 +1,7 @@
 'use strict';
 
 /* global angular */
-var app = angular.module('mean', ['ngRoute', 'ngResource']);
+var app = angular.module('mean', ['ngRoute', 'ngResource', 'ui.bootstrap', 'dialogs.main']);
 
 app.config(function ($routeProvider) {
 	$routeProvider.when('/contatos', {
