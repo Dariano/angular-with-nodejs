@@ -16,7 +16,7 @@ app.config(function ($routeProvider) {
 		templateUrl: 'partials/contato.html',
 		controller: 'contatoController',
 		resolve:{
-			acesso:function(ControleDeAcesso){ return ControleDeAcesso.usuarioTem('ADMIN2')}
+			acesso:function(ControleDeAcesso){ return ControleDeAcesso.usuarioTem('ADMIN')}
 		}
 	})
 	.otherwise({redirectTo: '/contatos'});
