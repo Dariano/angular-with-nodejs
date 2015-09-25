@@ -33,6 +33,7 @@
     "grunt-contrib-cssmin": "^0.12.3",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-ng-annotate": "^0.5.0",
+    "grunt-protractor-runner": "^2.1.0",
     "grunt-protractor-webdriver": "^0.2.0",
     "grunt-usemin": "^2.6.2",
     "protractor": "^2.2.0"

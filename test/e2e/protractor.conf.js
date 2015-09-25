@@ -14,8 +14,13 @@ exports.config = {
   // arquivo de especificação. Padrões globais poderão ser incluídos.
   specs: ['*Spec*.js'],
 
+  rootElement: 'html',
+
   // Opções a serem passadas para o Jasmine-node.
   jasmineNodeOpts: {
+    isVerbose: true,
+    includeStackTrace: true,
+    defaultTimeoutInterval: 30000,
     showColors: true // Use cores no relatório da linha de comando.
   }
 };

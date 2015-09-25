@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 		},
 		protractor: {
 			options: {
-				configFile: "node_modules/protractor/example/conf.js", // Default config file 
+				configFile: "test/e2e/protractor.conf.js", // Default config file 
 				keepAlive: true, // If false, the grunt process stops when the test fails. 
 				noColor: false, // If true, protractor will not use colors in its output. 
 				debug: false,
@@ -42,17 +42,19 @@ module.exports = function (grunt) {
 					// Arguments passed to the command 
 				}
 			},
-			your_target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+			degug: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
 				options: {
 					configFile: "test/e2e/protractor.conf.js", // Target-specific config file 
+					debug: false,
+					keepAlive: true,
 					args: {} // Target-specific arguments 
 				}
 			},
 		},
 		protractor_webdriver: {
-			your_target: {
+			start: {
 				options: {
-					command: 'webdriver-manager start',
+					command: 'custom-webdriver-manager start',
 				},
 			},
 		},
