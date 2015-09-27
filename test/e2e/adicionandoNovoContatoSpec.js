@@ -1,14 +1,41 @@
-describe('Usuario do sistema', function(){
+describe('Ao adicionar contato', function(){
 	
-	it('deve mostrar os contatos cadastrados', function() {
-		browser.get('#/contatos');
+	it('deve voltar para a tela de contatos, quando clicar no botão voltar', function(){
+		browser.get('#/contato');
 		
-		var linhas = element.all(
-			by.repeater('contato in ctrl.contatos')
-		);
+		element(by.css('.btn.btn-default')).click();
 		
-		expect(linhas.count()).toEqual(3);
+		expect(browser.getCurrentUrl()).toContain('/#/contatos');
+	});
 		
+	it('não deve salvar o contato se o nome não tiver preenchidos', function(){
+		browser.get('#/contato');
+		
+		var email = element(by.model('ctrl.contato.email'));
+		email.sendKeys('dariano@outlook.com');
+		
+		element(by.css('.btn-primary')).click();
+		
+		expect(browser.getCurrentUrl()).toContain('/#/contato');
+	});
+	
+	it('não deve salvar o contato se o email não tiver preenchidos', function(){
+		browser.get('#/contato');
+		
+		var nome = element(by.model('ctrl.contato.nome'));
+		nome.sendKeys('dariano');
+		
+		element(by.css('.btn-primary')).click();
+		
+		expect(browser.getCurrentUrl()).toContain('/#/contato');
+	});
+	
+	it('não deve salvar o contato se o nome e email não tiver preenchidos', function(){
+		browser.get('#/contato');
+		
+		element(by.css('.btn-primary')).click();
+		
+		expect(browser.getCurrentUrl()).toContain('/#/contato');
 	});
 	
 	it('deve adicionar um novo contato', function(){
@@ -22,24 +49,7 @@ describe('Usuario do sistema', function(){
 		
 		element(by.css('.btn-primary')).click();
 		
-		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/contatos');
+		expect(browser.getCurrentUrl()).toContain('/#/contatos');
 		
 	});
-	
-	it('deve remover o contato requerido', function(){
-		browser.get('#/contatos');
-		
-		var linhas = element.all(
-			by.repeater('contato in ctrl.contatos')
-		);		
-		
-		var ultimaLinha = element(by.repeater('contato in ctrl.contatos').row(3))
-		ultimaLinha.element(by.css('.btn-warning')).click();
-		
-		element(by.css('button.btn-default.ng-binding')).click();
-		
-		expect(linhas.count()).toEqual(3);
-		
-	});
-	
 });
