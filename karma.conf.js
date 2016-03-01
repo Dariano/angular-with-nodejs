@@ -17,11 +17,20 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     // lista de aquivos/padrões a serem carregados no navegador
     files: [
-      'angular.min.js',
-      'angular-mocks.js',
-      'controller.js',
-      'simpleSpec.js',
-      'controllerSpec.js'
+      'public/vendor/angular/angular.js',
+      'public/vendor/angular-mocks/angular-mocks.js',
+      'public/vendor/angular-resource/angular-resource.js',
+      'public/vendor/angular-route/angular-route.js',
+      'public/vendor/angular-dialog-service/dist/dialogs.js',
+      'public/vendor/angular-sanitize/angular-sanitize.min.js',
+      'public/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'public/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'public/js/main.js',
+      'public/js/controllers/*.js',
+      'public/js/services/*.js',
+      'public/js/configs/*.js',
+      'public/js/eventos/*.js',
+      'test/spec/*Spec.js'
     ],
 
 
@@ -44,7 +53,7 @@ module.exports = function(config) {
 
 
     // web server port
-    port: 8080,
+    port: 9876,
 
 
     // enable / disable colors in the output (reporters and logs)

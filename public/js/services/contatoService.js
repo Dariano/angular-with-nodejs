@@ -1,3 +1,3 @@
 app.factory('ContatoAPI', function ($resource) {
-	return $resource('/contatos/:id');
+	return $resource('http://jsonplaceholder.typicode.com/posts/');
 });
