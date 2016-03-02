@@ -1,7 +1,6 @@
 var express = require('express');
 var load = require('express-load');
 var bodyParser = require('body-parser');
-//var cors = require('cors');
 
 module.exports = function() {
 	var app = express();
@@ -18,7 +17,6 @@ module.exports = function() {
 	}));
 	app.use(bodyParser.json());
 	app.use(require('method-override')());
-	//app.use(cors());
 
 	// carrega rotas
 	load('models', {
