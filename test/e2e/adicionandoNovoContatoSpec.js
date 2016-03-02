@@ -1,7 +1,10 @@
 describe('Ao adicionar contato', function(){
+
+	beforeEach(function () {
+		browser.get('#/contato');
+	});
 	
 	it('deve voltar para a tela de contatos, quando clicar no botão voltar', function(){
-		browser.get('#/contato');
 		
 		element(by.css('.btn.btn-default')).click();
 		
@@ -9,7 +12,6 @@ describe('Ao adicionar contato', function(){
 	});
 		
 	it('não deve salvar o contato se o nome não tiver preenchidos', function(){
-		browser.get('#/contato');
 		
 		var email = element(by.model('ctrl.contato.email'));
 		email.sendKeys('dariano@outlook.com');
@@ -20,7 +22,6 @@ describe('Ao adicionar contato', function(){
 	});
 	
 	it('não deve salvar o contato se o email não tiver preenchidos', function(){
-		browser.get('#/contato');
 		
 		var nome = element(by.model('ctrl.contato.nome'));
 		nome.sendKeys('dariano');
@@ -31,7 +32,6 @@ describe('Ao adicionar contato', function(){
 	});
 	
 	it('não deve salvar o contato se o nome e email não tiver preenchidos', function(){
-		browser.get('#/contato');
 		
 		element(by.css('.btn-primary')).click();
 		
@@ -39,7 +39,6 @@ describe('Ao adicionar contato', function(){
 	});
 	
 	it('deve adicionar um novo contato', function(){
-		browser.get('#/contato');
 		
 		var nome = element(by.model('ctrl.contato.nome'));
 		var email = element(by.model('ctrl.contato.email'));

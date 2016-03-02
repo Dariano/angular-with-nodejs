@@ -1,48 +1,49 @@
+var ContatoPage = require('./pages/contatoPage');
+
 describe('Na lista de contatos', function(){
 	
+	beforeEach(function () {
+		ContatoPage.visitar();
+	});
+
 	it('ao clicar no botão novo contato, deve ser direcionado para o cadastro de contato', function(){
-		browser.get('#/contatos');
 		
-		element(by.css('.btn.btn-primary')).click();
-		
-		expect(browser.getCurrentUrl()).toContain('/#/contato');
+		ContatoPage.novo();
+
+		var urlEsperada = '/#/contato';
+		var urlCorrente = browser.getCurrentUrl(); 
+
+		expect(urlCorrente).toContain(urlEsperada);
 	});
 	
 	it('deve filtrar pelo nome', function(){
-		browser.get('#/contatos');
 		
-		var filtro = element(by.model('ctrl.filtro'));
-		filtro.sendKeys('dariano');
+		ContatoPage.filtrarPor('dariano')
 		
-		var linhas = element.all(
-			by.repeater('contato in ctrl.contatos')
-		);
+		var contatos = ContatoPage.todosContatos();
+		var contatosFiltrado = 1;
 		
-		expect(linhas.count()).toEqual(1);
+		expect(contatos.count()).toEqual(contatosFiltrado);
 	});	
 	
 	it('deve mostrar os contatos cadastrados', function() {
-		browser.get('#/contatos');
 		
-		var linhas = element.all(
-			by.repeater('contato in ctrl.contatos')
-		);
+		var contatos = ContatoPage.todosContatos();
+		var contatosEsperado = 4;
 		
-		expect(linhas.count()).toEqual(4);		
+		expect(contatos.count()).toEqual(contatosEsperado);		
 	});
 	
 	it('deve remover o contato requerido', function(){
-		browser.get('#/contatos');
 		
-		var linhas = element.all(
-			by.repeater('contato in ctrl.contatos')
-		);		
+		var totalAntes = ContatoPage.todosContatos().count();
 		
-		var ultimaLinha = element(by.repeater('contato in ctrl.contatos').row(3))
-		ultimaLinha.element(by.css('.btn-warning')).click();
+		var ultimaLinha = totalAntes;
+
+		ContatoPage.remover(ultimaLinha);
 		
-		element(by.css('button.btn-default.ng-binding')).click();
-		
-		expect(linhas.count()).toEqual(3);		
+		var totalDepois = ContatoPage.todosContatos();
+
+		expect(totalDepois).toBeLessThan(totalAntes);		
 	});	
 });
