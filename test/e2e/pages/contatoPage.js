@@ -4,45 +4,28 @@ var ContatoPage = function() {
 		browser.get('#/contato');
 	};
 
+	this.voltarParaContatos = function() {
+		element(by.css('.btn.btn-default')).click();
+	}
+
 	this.digitarNome = function(nome) {
-		element(by.model('contato.nome')).sendKeys(nome);
+		element(by.model('ctrl.contato.nome')).sendKeys(nome);
 	};
 
 	this.digitarEmail = function(email) {
-		element(by.model('contato.email')).sendKeys(email);
+		element(by.model('ctrl.contato.email')).sendKeys(email);
 	};
 
 	this.salvar = function() {
 		element(by.css('.btn-primary')).click();
 	};
 
-	this.novo = function() {
-		element(by.css('.btn.btn-primary')).click();
-	}
-
 	this.obterMensagem = function() {
-		return element(by.binding('mensagem.texto')).getText();
+		return element(by.binding('ctrl.mensagem.texto')).getText();
 	};
 
 	this.selecionarPrimeiraEmergenciaDaLista = function() {
 		element(by.css('options[value=0]')).click();
-	};
-
-	this.filtrarPor = function(textoFiltro) {
-		element(by.model('ctrl.filtro')).sendKeys(textoFiltro);
-	};
-
-	this.todosContatos = function() {
-		return element.all(
-			by.repeater('contato in ctrl.contatos')
-		);
-	};
-
-	this.remover = function(linha) {
-		var linhaSelecionada = element(by.repeater('contato in ctrl.contatos').row(linha));
-		linhaSelecionada.element(by.css('.btn-warning')).click();
-
-		element(by.css('button.btn-default.ng-binding')).click();
 	};
 }
 

@@ -77,6 +77,8 @@ module.exports = function (app) {
 	controller.salvarContato = function (req, res) {
 		var _idContato = req.body._id;
 
+		console.log(req.body);
+
 		if(_idContato){
 			res.json(atualiza(req.body));
 //			Contato.findByIdAndUpdate(_idContato, req.body).exec()
@@ -100,8 +102,12 @@ module.exports = function (app) {
 	};
 	
 	function adiciona(contatoNovo) {
+
 		contatoNovo._id = ++ID_CONTATO_INC;	
 		_contatos.push(contatoNovo);
+
+		console.log('novo contato', contatoNovo);
+		console.log('contatos', _contatos);
 
 		return contatoNovo;
 	};

@@ -12,7 +12,10 @@ exports.config = {
 
   // Os padrões de especificações são relativos á lacalização do 
   // arquivo de especificação. Padrões globais poderão ser incluídos.
-  specs: ['../test/e2e/*.js'],
+  specs: [
+    '../test/e2e/*.js',
+    '../test/spec/*.js'
+  ],
 
   rootElement: 'html',
 
