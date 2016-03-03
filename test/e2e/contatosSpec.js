@@ -5,8 +5,8 @@ describe('Na lista de contatos', function() {
 	beforeEach(function() {
 		ContatosPage.visitar();
 	});
-
-	/*it('deve filtrar pelo nome', function() {
+	
+	it('deve filtrar pelo nome', function() {
 
 		ContatosPage.filtrarPor('dariano');
 
@@ -14,12 +14,12 @@ describe('Na lista de contatos', function() {
 		var contatosEsperado = 1;
 
 		expect(contatosRetornado).toEqual(contatosEsperado);
-	});*/
+	});
 
 	it('deve mostrar os contatos cadastrados', function() {
 
 		var contatosCadastrados = ContatosPage.todos().count();
-		var contatosEsperado = 4;
+		var contatosEsperado = 1;
 
 		expect(contatosCadastrados).toEqual(contatosEsperado);
 	});

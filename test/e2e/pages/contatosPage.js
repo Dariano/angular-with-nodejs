@@ -23,7 +23,7 @@ var ContatosPage = function() {
 
 	this.novo = function() {
 		element(by.css('.btn.btn-primary')).click();
-	}
-}
+	};
+};
 
 module.exports = new ContatosPage();
