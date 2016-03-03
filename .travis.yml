@@ -23,6 +23,5 @@ before_script:
 - cd wwwroot
 script:
 - karma start karma.conf.js --single-run --browsers PhantomJS
-- webdriver-manager start &
 - node server &
 - protractor config/protractor.js
