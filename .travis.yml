@@ -6,10 +6,10 @@ node_js:
 services:
 - mongodb
 env:
-	global:
-	- NOVE_ENV: test
+global:
+- NOVE_ENV: test
 addons:
-	sauce_connect: true
+sauce_connect: true
 before_install:
 - npm install -g bower@1.7
 - npm install -g grunt-cli@0.1
