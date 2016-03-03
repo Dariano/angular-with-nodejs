@@ -4,3 +4,4 @@ public/vendor
 .settings
 wwwroot
 node_modules
+scripts

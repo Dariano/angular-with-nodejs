@@ -23,7 +23,7 @@ app.config(['$httpProvider', function($httpProvider) {
 */
   // Define o tipo de conteúdo como FORM para todas as solicitações POST
   // Isso não vale para solicitações GET
-  $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+  $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
   //$httpProvider.defaults.useXDomain = true;
   //delete $httpProvider.defaults.headers.common['X-Requested-With'];

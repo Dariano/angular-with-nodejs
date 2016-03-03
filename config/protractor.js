@@ -1,4 +1,9 @@
+var config = require('./config');
+
 exports.config = {
+  sauceUser: config.sauceUser,
+  sauceKey: config.souceKey,
+
   // O endereço de um servidor Seleniun em execução
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
@@ -7,7 +12,10 @@ exports.config = {
 
   // Recursos a serem passadas á instância do WebDriver
   capabilities: {
-    'browserName': 'chrome'
+    'name': config.souceTestName,
+    'browserName': 'chrome',
+    'tunnel-identifier': config.travisJobNumber,
+    'build': config.travisBuild
   },
 
   // Os padrões de especificações são relativos á lacalização do 
