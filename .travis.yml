@@ -20,7 +20,7 @@ before_install:
 before_script:
 - node test/data.js
 - grunt
-- cd dist
+- cd wwwroot
 script:
 - karma start karma.conf.js --single-run --browsers PhantomJS
 - node server &
