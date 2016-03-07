@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-console.log(config);
-
 var ContatoPage = function() {
 
 	this.visitar = function() {

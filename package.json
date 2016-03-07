@@ -4,7 +4,7 @@
   "description": "projeto mean stak",
   "main": "index.js",
   "scripts": {
-    "test": "protractor test/e2e/protractor.conf.js"
+    "test": "karma start karma.conf.js --single-run --browsers PhantomJS"
   },
   "author": "dariano soares",
   "license": "ISC",

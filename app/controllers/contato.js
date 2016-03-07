@@ -1,4 +1,9 @@
-var ID_CONTATO_INC = 3;
+var user = {
+       "name": "John Doe",
+       "roles": ["ADMIN", "USER"],
+       "anonymous": false
+};
+
 
 module.exports = function(app) {
 	var Contato = app.models.contato;
