@@ -16,7 +16,7 @@ describe('ContotaController', function() {
 	});
 
 	it('Deve criar um contato vazio quando nenhum parâmetro de rota for passado',
-		inject(function ($controller) {
+		inject(function ($controller) {			
 			var ctrl = $controller('contatoController', {
 				'$scope': $scope
 			});

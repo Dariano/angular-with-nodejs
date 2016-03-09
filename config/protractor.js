@@ -12,10 +12,10 @@ exports.config = {
 
   // Recursos a serem passadas á instância do WebDriver
   capabilities: {
-    'name': config.souceTestName,
+    //'name': config.souceTestName,
     'browserName': 'chrome',
-    'tunnel-identifier': config.travisJobNumber,
-    'build': config.travisBuild
+    //'tunnel-identifier': config.travisJobNumber,
+    //'build': config.travisBuild,
   },
 
   // Os padrões de especificações são relativos á lacalização do 
