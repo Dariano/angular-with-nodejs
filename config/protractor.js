@@ -7,6 +7,12 @@ exports.config = {
   // O endereço de um servidor Seleniun em execução
   seleniumAddress: 'http://localhost:4444/wd/hub',
 
+  // seleniumServerJar: './../node_modules/grunt-selenium-webdriver/jar/selenium-server-standalone-2.48.2.jar',
+
+  // The port to start the selenium server on, or null if the server should
+  // find its own unused port.
+  // seleniumPort: 4444,
+
   // A URL em que o servidor que estaremos testando está executando.
   baseUrl: 'http://localhost:3000/',
 
@@ -21,6 +27,10 @@ exports.config = {
   // Os padrões de especificações são relativos á lacalização do 
   // arquivo de especificação. Padrões globais poderão ser incluídos.
   specs: ['../test/e2e/*.js'],
+
+  // args: {
+  //   directConnect: true
+  // },
 
   rootElement: 'html',
 

@@ -55,7 +55,7 @@ module.exports = function (grunt) {
 		protractor_webdriver: {
 			options: {
 				path: '/path/to/',
-				command: 'custom-webdriver-manager start',
+				command: 'custom-webdriver-manager start --standalone',
 				keepAlive: true,
 			}
 		},
@@ -64,18 +64,35 @@ module.exports = function (grunt) {
 	      options: grunt.file.readJSON('.jshintrc')
 	    },
 	    karma: {
+		  unit: {
 		    configFile: 'karma.conf.js',
+		    port: 9999,
 		    singleRun: true,
 		    browsers: ['PhantomJS'],
-		    reporters: ['dots', 'junit'],
-		    files: ['test/spec/*Spec.js']
-		}
+		    logLevel: 'ERROR'
+		  }
+		},
+		express:{
+			test: {
+		      options: {
+		        script: 'server.js',
+		        port: 3000,
+		        node_env: 'test',
+		        background: true,
+		      }
+		    },
+		},
+		selenium: {
+	        options: { 
+	        	port: 4444 
+	        }
+	    }
 	});
 	
 	grunt.registerTask('default',['dist', 'minifica']);	
 	grunt.registerTask('dist',['clean', 'copy']);
 	grunt.registerTask('minifica',['useminPrepare', 'ngAnnotate','concat', 'uglify', 'cssmin', 'usemin']);
-	grunt.registerTask('e2e', ['protractor', 'protractor_webdriver', 'default']);
+	grunt.registerTask('e2e', ['karma', 'protractor_webdriver','express:test','protractor']);
 	grunt.registerTask('jenkins', ['e2e']);
 
 	grunt.loadNpmTasks('grunt-contrib-copy');	
@@ -87,6 +104,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-ng-annotate');
 	grunt.loadNpmTasks('grunt-protractor-runner');
 	grunt.loadNpmTasks('grunt-protractor-webdriver');
+	grunt.loadNpmTasks('grunt-express-server');
 
 	grunt.loadNpmTasks('grunt-testem');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
