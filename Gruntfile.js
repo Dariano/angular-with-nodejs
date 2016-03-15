@@ -81,12 +81,7 @@ module.exports = function (grunt) {
 		        background: true,
 		      }
 		    },
-		},
-		selenium: {
-	        options: { 
-	        	port: 4444 
-	        }
-	    }
+		}
 	});
 	
 	grunt.registerTask('default',['dist', 'minifica']);	

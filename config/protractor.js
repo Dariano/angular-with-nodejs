@@ -5,13 +5,14 @@ exports.config = {
   sauceKey: config.souceKey,
 
   // O endereço de um servidor Seleniun em execução
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
 
-  // seleniumServerJar: './../node_modules/grunt-selenium-webdriver/jar/selenium-server-standalone-2.48.2.jar',
+  seleniumServerJar: './../node_modules/grunt-selenium-webdriver/jar/selenium-server-standalone-2.48.2.jar',
 
   // The port to start the selenium server on, or null if the server should
   // find its own unused port.
-  // seleniumPort: 4444,
+   seleniumPort: 4444,
+   directConnect: true,
 
   // A URL em que o servidor que estaremos testando está executando.
   baseUrl: 'http://localhost:3000/',
