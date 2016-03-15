@@ -12,8 +12,8 @@ exports.config = {
 
   // The port to start the selenium server on, or null if the server should
   // find its own unused port.
-   seleniumPort: 4444,
-   directConnect: true,
+  seleniumPort: 4444,
+  directConnect: true,
 
   // A URL em que o servidor que estaremos testando está executando.
   baseUrl: 'http://localhost:3000/',
@@ -22,6 +22,11 @@ exports.config = {
   capabilities: {
     //'name': config.souceTestName,
     'browserName': 'chrome',
+    chromeOptions: {
+      binary: '/usr/bin/google-chrome',
+      args: [],
+      extensions: [],
+    }
     //'tunnel-identifier': config.travisJobNumber,
     //'build': config.travisBuild,
   },
